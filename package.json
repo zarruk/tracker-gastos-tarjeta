@@ -25,7 +25,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "build:css": "tailwindcss -i styles/globals.css -o styles/dist.css",
     "watch:css": "tailwindcss -i styles/globals.css -o styles/dist.css --watch",
     "lint": "next lint"
