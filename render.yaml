@@ -2,13 +2,23 @@ services:
   - type: web
     name: tracker-gastos-tarjeta
     env: node
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: |
+      echo "Node version: $(node -v)"
+      echo "NPM version: $(npm -v)"
+      npm install
+      npm run build:css
+      npm run build
+    startCommand: |
+      echo "Starting server..."
+      ls -la
+      npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3000
+      - key: NEXT_PUBLIC_API_URL
+        value: https://tracker-gastos-tarjeta.onrender.com
     buildFilter:
       paths:
       - pages/**
