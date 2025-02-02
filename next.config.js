@@ -4,7 +4,10 @@ const nextConfig = {
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname
   },
-  output: 'standalone'
+  output: 'standalone',
+  poweredByHeader: false,
+  generateEtags: false,
+  compress: true
 }
 
 module.exports = nextConfig 

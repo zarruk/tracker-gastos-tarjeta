@@ -29,7 +29,8 @@
     "start": "next start -p $PORT",
     "build:css": "tailwindcss -i styles/globals.css -o styles/dist.css",
     "watch:css": "tailwindcss -i styles/globals.css -o styles/dist.css --watch",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npm run build:css"
   },
   "eslintConfig": {
     "extends": [
