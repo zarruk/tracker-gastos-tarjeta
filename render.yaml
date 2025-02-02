@@ -7,11 +7,11 @@ services:
       echo "NPM version: $(npm -v)"
       npm install
       npm run build:css
-      npm run build
+      NODE_ENV=production npm run build
     startCommand: |
       echo "Starting server..."
       ls -la
-      npm start
+      NODE_ENV=production npm start
     envVars:
       - key: NODE_ENV
         value: production

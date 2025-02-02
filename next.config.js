@@ -23,6 +23,26 @@ const nextConfig = {
     }
     return config
   },
+  trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/',
+          destination: '/index',
+        },
+      ],
+    }
+  }
 }
 
 module.exports = nextConfig 
