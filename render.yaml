@@ -2,23 +2,14 @@ services:
   - type: web
     name: tracker-gastos-tarjeta
     env: node
-    buildCommand: |
-      echo "Node version: $(node -v)"
-      echo "NPM version: $(npm -v)"
-      npm install
-      npm run build:css
-      NODE_ENV=production npm run build
-    startCommand: |
-      echo "Starting server..."
-      ls -la
-      NODE_ENV=production npm start
+    plan: free
+    buildCommand: npm install && npm run build:css && npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 3000
-      - key: NEXT_PUBLIC_API_URL
-        value: https://tracker-gastos-tarjeta.onrender.com
+      - key: WEBHOOK_URL
+        value: https://workflows.ops.sandbox.cuentamono.com/webhook-test/3bf2cdc1-7b94-45df-8f35-a24977cffa02
     buildFilter:
       paths:
       - pages/**

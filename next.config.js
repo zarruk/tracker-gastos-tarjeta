@@ -1,47 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  serverRuntimeConfig: {
-    PROJECT_ROOT: __dirname
-  },
   output: 'standalone',
-  poweredByHeader: false,
-  generateEtags: false,
-  compress: true,
-  distDir: '.next',
-  // Agregar logs en desarrollo
-  onDemandEntries: {
-    // periodo de tiempo en ms donde las páginas se mantienen en buffer
-    maxInactiveAge: 25 * 1000,
-    // número de páginas que se mantienen en memoria
-    pagesBufferLength: 2,
-  },
-  webpack: (config, { isServer, dev }) => {
-    // Aquí puedes agregar logs de webpack si es necesario
-    if (dev && isServer) {
-      console.log('Webpack config is running in development mode')
-    }
-    return config
-  },
-  trailingSlash: true,
-  async redirects() {
-    return [
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-    ]
-  },
-  async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/',
-          destination: '/index',
-        },
-      ],
-    }
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000',
+    WEBHOOK_URL: process.env.WEBHOOK_URL
   }
 }
 

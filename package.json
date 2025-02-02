@@ -25,14 +25,11 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_ENV=production next build",
+    "build": "next build",
     "start": "next start -p $PORT",
-    "build:css": "tailwindcss -i styles/globals.css -o styles/dist.css",
-    "watch:css": "tailwindcss -i styles/globals.css -o styles/dist.css --watch",
     "lint": "next lint",
-    "postinstall": "npm run build:css",
-    "debug": "NODE_OPTIONS='--inspect' next dev",
-    "analyze": "ANALYZE=true next build"
+    "build:css": "tailwindcss -i styles/globals.css -o styles/dist.css --minify",
+    "postinstall": "npm run build:css"
   },
   "eslintConfig": {
     "extends": [
