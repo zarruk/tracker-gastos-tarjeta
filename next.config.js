@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname
-  }
+  },
+  output: 'standalone'
 }
 
 module.exports = nextConfig 
